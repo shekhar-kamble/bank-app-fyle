@@ -24,6 +24,8 @@ def search():
     # result = [ast.literal_eval(str(r)) for r in result]
     # for r in result:
     #     print type(r)
+    if not result:
+        result = [] 
     json_result = {}
     json_result["result"] = result
     # print json_result
@@ -33,6 +35,9 @@ def search():
 def search_by_ifsc(ifsc_code):
     result = Bank_Branches.search_by_ifsc(ifsc_code)
     result = ast.literal_eval(str(result))
+    print type(result)
+    if not result:
+        result = {"error": "enter valid ifsc_code"}
     # json_result = {}
     # json_result["result"] = result
     # print json_result
