@@ -7,9 +7,9 @@ default = Blueprint('default', __name__)
 @default.route('/search', methods=['GET'])
 def search():
     search_dict = {}
-    search_dict["bank_name"] = request.args.get('bank_name')
-    search_dict["city"] = request.args.get('city')
-    search_dict["page"] = request.args.get('page')
+    search_dict["bank_name"] = request.args.get('bank_name',"")
+    search_dict["city"] = request.args.get('city',"")
+    search_dict["page"] = request.args.get('page',"")
     if search_dict["page"]:
         try:
             search_dict["page"] = int(search_dict["page"])
